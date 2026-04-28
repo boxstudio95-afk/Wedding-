@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akash ❤️ Amruta Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  background: linear-gradient(to bottom, #fff5f5, #fff);
+  text-align:center;
+  color:#444;
+}
+
+/* 🌸 Floating Flowers */
+.flowers-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.flower {
+  position: absolute;
+  top: -50px;
+  font-size: 20px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Content */
+.section {
+  padding: 40px 20px;
+  opacity:0;
+  transform: translateY(30px);
+  transition: 0.8s;
+  position: relative;
+  z-index: 1;
+}
+
+.show {
+  opacity:1;
+  transform: translateY(0);
+}
+
+.small { font-size:14px; opacity:0.8; }
+
+.big-name {
+  font-size:28px;
+  font-weight:700;
+  color:#b76e79;
+}
+
+.highlight {
+  font-weight:700;
+  font-size:22px;
+  color:#d16a7c;
+}
+
+img {
+  width:200px;
+  border-radius:15px;
+  margin:20px 0;
+}
+
+.map-btn {
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 25px;
+  background: linear-gradient(135deg,#ffb6b9,#fcd5ce);
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+}
+
+.map-btn:hover { transform: scale(1.05); }
+</style>
+</head>
+
+<body>
+
+<!-- 🌸 Flowers -->
+<div class="flowers-container"></div>
+
+<!-- HEADER -->
+<div class="section">
+  <div class="small">|| श्री गणेशाय नमः ||</div>
+
+  <img src="https://i.imgur.com/6oK6w7G.png">
+
+  <div class="highlight">शुभविवाह सोहळा</div>
+</div>
+
+<!-- COUPLE PHOTO -->
+<div class="section">
+  <img src="https://i.imgur.com/your-photo.jpg">
+</div>
+
+<!-- GROOM -->
+<div class="section">
+  <div class="big-name">ची. आकाश</div>
+  <div class="small">
+    कै. माणिकराव भिकोबा जगताप यांचे नातू <br>
+    व सौ. श्री. सुनंदा मधुकर माणिकराव जगताप <br>
+    रा. सासवड ता. पुरंदर जि. पुणे यांचे सुपुत्र
+  </div>
+</div>
+
+<!-- BRIDE -->
+<div class="section">
+  <div class="big-name">चि. सौ. का. अमृता</div>
+  <div class="small">
+    कै. गणपत बाबुराव जाधव यांची नात व <br>
+    सौ.श्री. निता रामदास गणपत जाधव <br>
+    रा. सासवड ता. पुरंदर जि. पुणे यांची कन्या
+  </div>
+</div>
+
+<!-- INFO -->
+<div class="section">
+  यांचा शुभविवाह गुरुवार दि.३०/०४/२०२६ रोजी <br>
+  सायं. ६ वा ४५ मि. या गोरज मुहूर्तावर करण्याचे योजिले आहे.
+</div>
+
+<!-- HALDI -->
+<div class="section">
+  <div class="highlight">हळदी समारंभ</div>
+  गुरुवार दि. ३०/०४/२०२६ रोजी <br>
+  दुपारी १२ वा ३५ मि. ( विवाहस्थळी )
+</div>
+
+<!-- FOOD -->
+<div class="section">
+  <div class="highlight">भोजन समारंभ</div>
+  दु.१ ते ४ वाजेपर्यंत <br>
+  संध्याकाळी ७ ते आगमनापर्यंत
+</div>
+
+<!-- VENUE -->
+<div class="section">
+  <div class="highlight">विवाहस्थळ</div>
+
+  <div class="big-name">माऊली गार्डन मंगल कार्यालय</div>
+
+  सासवड-जेजुरी रोड, <br>
+  खळद ता. पुरंदर जि. पुणे
+
+  <br><br>
+
+  <a href="https://maps.app.goo.gl/eV1uECLEJYQtPxnM8?g_st=ac" target="_blank" class="map-btn">
+    📍 लोकेशन पहा
+  </a>
+</div>
+
+<!-- FOOTER -->
+<div class="section">
+  🙏🏻 निमंत्रक 🙏🏻 <br>
+  समस्त जगताप परिवार
+</div>
+
+<script>
+// Scroll Animation
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    if(sec.getBoundingClientRect().top < window.innerHeight - 50) {
+      sec.classList.add('show');
+    }
+  });
+});
+
+// 🌸 Flowers
+const container = document.querySelector('.flowers-container');
+
+function createFlower() {
+  const flower = document.createElement('div');
+  flower.classList.add('flower');
+  flower.innerHTML = "🌸";
+
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.animationDuration = (5 + Math.random() * 5) + "s";
+  flower.style.fontSize = (15 + Math.random() * 20) + "px";
+
+  container.appendChild(flower);
+
+  setTimeout(() => flower.remove(), 10000);
+}
+
+setInterval(createFlower, 500);
+</script>
+
+</body>
+</html>
